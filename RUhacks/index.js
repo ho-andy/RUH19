@@ -1,5 +1,6 @@
-const express = require('express');
-const app = express();
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 var path = require('path');
 var router = express.Router();
 var bodyParser = require('body-parser')
@@ -14,6 +15,10 @@ app.get('/', (req, res) => {
   res.render("index");
 });
 
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
 app.get('/about', (req, res) => {
   res.render("about");
 });
@@ -25,7 +30,7 @@ app.get('/sign-up', (req, res) => {
 
 // Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
 
