@@ -69,3 +69,7 @@ app.post('/submit-form', (req, res) => {
   res.end();
   });
 });
+
+app.post('/chat', (req,res)=>{
+
+});
