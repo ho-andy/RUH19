@@ -1,7 +1,37 @@
-<link rel="stylesheet" type="text/css" href="style/style.css">
-<title>PenPalr: The Anonymous PenPal App</title>
+<html>
+ 
+<head>
+    <title>PenPalr</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
 
 <body>
-        <div style="float:right"><a href="/about">About Us</a>    <a href="/login">Login</a>    <a href="/sign-up">Sign Up</a></div>
-<div style="text-align:center"><h1>PenPalr</h1></div>
+    <div class="container">
+        <div class="header">
+            <h1><span class="fas fa-user-friends"></span> PenPalr</h1>
+            <h2>Connecting people around the world!</h2>
+        </div>
+        <div class="login-elements">
+            <h3>Log in</h3>
+            <form>
+                <div class="text-input">
+                    <p>Username:</p>
+                    <input type="text" class="input" name="username" required>
+                </div>
+                <div class="text-input">
+                    <p>Password:</p>
+                    <input type="text" class="input" name="password" required>
+                </div>
+                <input type="submit" class="login-button" value="Login">
+            </form>
+        </div>
+        <div class="sign-up">
+            <h5>Don't have an account with us? Sign up and start chatting now!</h5>
+            <a href="#" class="sign-up-button">Sign Up <span class="fas fa-angle-right"></span></a>
+        </div>
+    </div>
+    <h6>© Copyright 2019, Team 🅱️ RUHacks 2019</h6>
 </body>
+
+</html>
