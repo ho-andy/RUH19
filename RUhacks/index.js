@@ -77,14 +77,19 @@ app.post('/submit-form', (req, res) => {
 app.post('/chat', (req,res)=>{
   const username = req.body.username;
   const password = req.body.password;
-
+  console.log("1");
   var sql_creds = "SELECT * FROM user_creds WHERE user = '" + username + "' AND password='" + password + "'";
-  
+  console.log("2");
+
   if(result && result.length){
-    res.render("index");
+    res.render("chat");
+    console.log("3");
+
   }
   else{
-    res.render("chat");
+    res.render("index");
+    console.log("4");
+
   }
 
 });
