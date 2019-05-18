@@ -68,7 +68,7 @@ app.post('/submit-form', (req, res) => {
         if (err) throw err;
         console.log("1 record inserted");
       });
-      res.render("submit-form");
+      res.render("chat");
     }
   res.end();
   });
