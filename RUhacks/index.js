@@ -27,6 +27,9 @@ app.get('/about', (req, res) => {
 app.get('/sign-up', (req, res) => {
   res.render("signup");
 });
+app.get('/chat', (req, res) => {
+  res.render("chat");
+});
 
 
 // Listen to the App Engine-specified port, or 8080 otherwise
