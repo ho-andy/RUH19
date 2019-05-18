@@ -59,7 +59,6 @@ app.post('/submit-form', (req, res) => {
   var sql_info = "INSERT INTO user_information (user, country, personality) VALUES ('" + username + "', '" + country + "', 'A')";
 
   connection.query(query, function(err,result) {
-    console.log(result);
     if(result && result.length){
       res.render("signup");
     }
@@ -73,12 +72,28 @@ app.post('/submit-form', (req, res) => {
         if (err) throw err;
         console.log("1 record inserted");
       });
-      res.render("submit-form");
+      res.render("chat");
     }
   res.end();
   });
 });
 
 app.post('/chat', (req,res)=>{
+  const username = req.body.username;
+  const password = req.body.password;
+  console.log("1");
+  var sql_creds = "SELECT * FROM user_creds WHERE user = '" + username + "' AND password='" + password + "'";
+  console.log("2");
+
+  if(result && result.length){
+    res.render("chat");
+    console.log("3");
+
+  }
+  else{
+    res.render("index");
+    console.log("4");
+
+  }
 
 });

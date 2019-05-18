@@ -24,6 +24,7 @@ body{
 .login-button:hover{
     background-color: black;
     color: #95dfd0;
+    cursor: pointer;
 }
 
 .input{
