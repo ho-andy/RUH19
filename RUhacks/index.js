@@ -16,10 +16,6 @@ app.get('/', (req, res) => {
   res.render("index");
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
-});
-
 app.get('/about', (req, res) => {
   res.render("about");
 });
@@ -27,9 +23,16 @@ app.get('/about', (req, res) => {
 app.get('/sign-up', (req, res) => {
   res.render("signup");
 });
+
 app.get('/chat', (req, res) => {
   res.render("chat");
 });
+
+//Server IO
+io.on('connection', function(socket){
+  console.log('a user connected');
+});
+
 
 
 // Listen to the App Engine-specified port, or 8080 otherwise
