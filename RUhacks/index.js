@@ -47,9 +47,5 @@ app.post('/submit-form', (req, res) => {
     if (err) throw err;
     console.log("1 record inserted");
   });
-
-  console.log(username);
-  console.log(password);
-  console.log(country);
   res.end()
 });
