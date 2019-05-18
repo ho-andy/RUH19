@@ -9,6 +9,13 @@
         body { padding-top:50px; }
     </style>
 </head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+</script>
+
 <body>
 
     <div class="container">
@@ -17,5 +24,17 @@
         </div>
     </div>
 
+    form
+
+
+
+
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+
 </body>
+
+
 </html>
