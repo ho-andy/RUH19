@@ -10,6 +10,7 @@ const connection = require('./database');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', router);
+app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
@@ -31,8 +32,6 @@ app.get('/chat', (req, res) => {
   res.render("chat");
 });
 
-
-// Listen to the App Engine-specified port, or 8080 otherwise
 const PORT = process.env.PORT || 8080;
 http.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
