@@ -44,17 +44,29 @@ app.post('/submit-form', (req, res) => {
   const password = req.body.password;
   const country = req.body.country;
 
+  
+  var query = "SELECT * FROM user_creds WHERE user = '" + username + "'";
+
   var sql_creds = "INSERT INTO user_creds (user, password) VALUES ('" + username + "', '" + password + "')";
   var sql_info = "INSERT INTO user_information (user, country, personality) VALUES ('" + username + "', '" + country + "', 'A')";
 
-  connection.query(sql_creds, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
+  connection.query(query, function(err,result) {
+    console.log(result);
+    if(result && result.length){
+      res.render("signup");
+    }
+    else{
+      connection.query(sql_creds, function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+      });
+    
+      connection.query(sql_info, function (err, result) {
+        if (err) throw err;
+        console.log("1 record inserted");
+      });
+      res.render("submit-form");
+    }
+  res.end();
   });
-
-  connection.query(sql_info, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-  });
-  res.end()
 });
