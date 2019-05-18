@@ -32,6 +32,10 @@ app.get('/chat', (req, res) => {
 //Server IO
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.on('user-message', function(msg){
+    console.log("balls");
+    io.emit('user-message', msg);
+  });
 });
 
 
