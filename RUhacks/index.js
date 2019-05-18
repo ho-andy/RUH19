@@ -50,7 +50,6 @@ app.post('/submit-form', (req, res) => {
   var sql_info = "INSERT INTO user_information (user, country, personality) VALUES ('" + username + "', '" + country + "', 'A')";
 
   connection.query(query, function(err,result) {
-    console.log(result);
     if(result && result.length){
       res.render("signup");
     }
@@ -71,5 +70,16 @@ app.post('/submit-form', (req, res) => {
 });
 
 app.post('/chat', (req,res)=>{
+  const username = req.body.username;
+  const password = req.body.password;
+
+  var sql_creds = "SELECT * FROM user_creds WHERE user = '" + username + "' AND password='" + password + "'";
+  
+  if(result && result.length){
+    res.render("index");
+  }
+  else{
+    res.render("chat");
+  }
 
 });
