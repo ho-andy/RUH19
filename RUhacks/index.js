@@ -1,4 +1,5 @@
-var app = require('express')();
+var express = require('express');
+var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var path = require('path');
@@ -25,6 +26,9 @@ app.get('/about', (req, res) => {
 
 app.get('/sign-up', (req, res) => {
   res.render("signup");
+});
+app.get('/chat', (req, res) => {
+  res.render("chat");
 });
 
 
