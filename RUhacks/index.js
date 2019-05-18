@@ -32,6 +32,10 @@ app.get('/chat', (req, res) => {
 //Server IO
 io.on('connection', function(socket){
   console.log('a user connected');
+  socket.on('user-message', function(msg){
+    console.log("balls");
+    io.emit('user-message', msg);
+  });
 });
 
 
@@ -68,7 +72,7 @@ app.post('/submit-form', (req, res) => {
         if (err) throw err;
         console.log("1 record inserted");
       });
-      res.render("chat");
+      res.redirect('/chat');
     }
   res.end();
   });
