@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body{
+    background-color: #95dfd0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.container{
+    margin: 2em;
+    border: 2px solid black;
+    padding: 20px;
+}
+
+.login-button{
+    padding: 12px 20px;
+    background-color: #95dfd0;
+    color: black;
+    border: 2px solid black;
+    margin: 2em;
+    font-size: 110%;
+}
+
+.login-button:hover{
+    background-color: black;
+    color: #95dfd0;
+}
+
+.input{
+    background-color: #95dfd0;
+    border: 2px solid black;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.input:focus{
+    background-color: #82bcb0;
+}
+
+.sign-up-button{
+    text-decoration: none;
+    background-color: black;
+    color: #95dfd0;
+    padding: 12px 20px;
+}
+
+.sign-up-button:hover{
+    color: #c5f9ef;
+}
