@@ -7,7 +7,7 @@ $(function() {
 
         var date = new Date();
         var minutes = date.getMinutes();
-        console.log(minutes.toString().trim().length);
+        //console.log(minutes.toString().trim().length);
         if(minutes.toString().length == 1){
             minutes = 0 + "" + minutes;
         }
@@ -24,16 +24,18 @@ $(function() {
     
 
     socket.on('user-message', function(msg){
-        console.log("myown");
-        console.log("Message: " + msg);
+        console.log("myown Message: " + msg);
         var history = $('#chat-history').val();
         var out = history + '\n' + currTime + " " + msg;
         var out2 = currTime + " " + msg;
+        console.log("currTime: " + currTime);
 
         if(history){
+            console.log("Out: " + out);
             $('#chat-history').val(out);
             addToTextarea($('#chat-history'));
         } else {
+            console.log("Out2: " + out2);
             $('#chat-history').val(out2);
             addToTextarea($('#chat-history'));
         }
