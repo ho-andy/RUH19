@@ -62,7 +62,7 @@ app.post('/submit-form', (req, res) => {
 
   connection.query(query, function(err,result) {
     if(result && result.length){
-      res.render("signup");
+      res.redirect("/sign-up#failed");
     }
     else{
       connection.query(sql_creds, function (err, result) {
@@ -74,28 +74,25 @@ app.post('/submit-form', (req, res) => {
         if (err) throw err;
         console.log("1 record inserted");
       });
-      res.render("chat");
+      res.redirect('/chat');
     }
   res.end();
   });
 });
 
-app.post('/chat', (req,res)=>{
+app.post('/chat', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  console.log("1");
   var sql_creds = "SELECT * FROM user_creds WHERE user = '" + username + "' AND password='" + password + "'";
-  console.log("2");
 
-  if(result && result.length){
-    res.render("chat");
-    console.log("3");
+  connection.query(sql_creds, function(err,result) {
 
-  }
-  else{
-    res.render("index");
-    console.log("4");
-
-  }
+    if(result && result.length){
+      res.redirect("/chat");
+    }
+    else{
+      res.redirect("/#failed");
+    }
+  });
 
 });
