@@ -1,14 +1,43 @@
+<html>
+
+<head>
+    <title>Chat Room</title>
+    <link rel="stylesheet" type="text/css" href="css/chat.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+
 <body>
-     <textarea readonly=true id="chat-history" defaultValue="" cols="15" rows="15"></textarea>
+    <div class="">
+        <h1><span class="fas fa-comments"></span> Welcome to the Chat Room!</h1>
+        <hr class="divider">
+        <h3>Rules of the chat:</h3>
+        <ol>
+            <li>Be respectful and courteous of the other party.</li>
+            <li>Refrain from using negative, abusive or derogatory language.</li>
+            <li>Do not reveal any real information or ask for any real information from your partner unless you both consent to it.</li>
+            <li>Don't spam.</li>
+            <li>If at any time you feel threatened, don't hesitate to leave the chat.</li>
+            <li>Have fun!</li>
+        </ol>
+    </div>
+    <div class="container">
+        <div>
+            <textarea class="chat-history" readonly=true id="chat-history" defaultValue="" cols="15" rows="15"></textarea>
+        </div>
+        <form id="chat-form">
+            <div class="text-area">
+                <input type="text" placeholder="Say Hi!" id="message-content" class="message-input">
+            </div>
+            <div class="button-container">
+                <button class="send-button">Send <span class="fas fa-angle-right"></span></button>
+            </div>
+        </form>
+    </div>
+    <button class="exit">Exit</button>
 
-
-    <form id="chat-form">
-        <input type="text" placeholder="Say Hi!" id="message-content">
-        <button>Send</button>
-    </form>
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="scripts/client.js"></script>
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="scripts/client.js"></script>
 </body>
+
+</html>
