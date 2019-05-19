@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body{
+    background-color: #95dfd0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container{
+    text-align: center;
+}
+
+.text-area{
+    display: inline-block;
+
+}
+
+.button-container{
+    display: inline-block;
+}
+.send-button{
+    background-color: #95dfd0;
+    color: black;
+    border: 2px solid black;
+    float: left;
+}
+
+.divider{
+    height: 0;
+    border: 0.5px solid black;
+}
+
+.send-button:hover{
+    background-color: black;
+    color: #95dfd0;
+    cursor: pointer;
+}
+
+.message-input{
+    float: left;
+    border-radius: 4px;
+}
+
+/* or its ::after */
+.message-input::after {
+    background-color: red;
+}
+
+.chat-history{
+    width:100%;
+    border-radius: 10px;
+}
+
+.exit{
+    background-color: black;
+    color: #95dfd0;
+    border: none;
+    font-size: 150%;
+    padding: 10px 25px;
+}
+
+.exit:hover{
+    color: #c5f9ef;
+    cursor: pointer;
+}
