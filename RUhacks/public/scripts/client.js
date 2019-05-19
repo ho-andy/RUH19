@@ -1,6 +1,6 @@
 $(function() {
-    //var socket = io('https://certain-voyager-241002.appspot.com', { transports: [ 'websocket', 'polling' ] });
-    var socket = io();
+    var socket = io('https://certain-voyager-241002.appspot.com', { transports: [ 'websocket', 'polling' ] });
+    //var socket = io();
     var currTime;
 
     $('button').on('click', function(e){
@@ -26,13 +26,15 @@ $(function() {
     socket.on('user-message', function(msg){
         console.log("myown");
         console.log("Message: " + msg);
-        var temp = $('#chat-history').val();
+        var history = $('#chat-history').val();
+        var out = history + '\n' + currTime + " " + msg;
+        var out2 = currTime + " " + msg;
 
-        if(temp){
-            $('#chat-history').val(temp + '\n' + currTime + " " + msg);
+        if(history){
+            $('#chat-history').val(out);
             addToTextarea($('#chat-history'));
         } else {
-            $('#chat-history').val(currTime + " " + msg);
+            $('#chat-history').val(out2);
             addToTextarea($('#chat-history'));
         }
 
