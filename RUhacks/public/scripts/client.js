@@ -1,6 +1,6 @@
 $(function() {
-    var socket = io('https://certain-voyager-241002.appspot.com', { transports: [ 'websocket', 'polling' ] });
-    //var socket = io();
+    //var socket = io('https://certain-voyager-241002.appspot.com', { transports: [ 'websocket', 'polling' ] });
+    var socket = io();
     var currTime;
 
     $('button').on('click', function(e){
