@@ -101,7 +101,7 @@ app.post('/profile', (req, res) => {
   connection.query(sql_creds, function(err,result) {
 
     if(result && result.length){
-      connection.query("SELECT * FROM chat WHERE user1 = '" + username + "' OR user2 = '" + username + "'",function(err,rows){
+      connection.query("SELECT * FROM chat WHERE user1 = '" + username + "' OR user2 = '" + username + "' UNION SELECT * FROM USER_INFORMATION WHERE USER = '" + username + "'",function(err,rows){
         res.status(200).json({"Data":rows});
       });
     }
