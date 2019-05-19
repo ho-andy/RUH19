@@ -40,7 +40,7 @@ io.on('connection', function(socket){
     //var ip = socket.handshake.address;
     //var out = ip + ": " + msg;
     console.log("balls");
-    msg.emit('user-message', msg); // out --> msg
+    io.emit('user-message', msg); // out --> msg
   });
 });
 
