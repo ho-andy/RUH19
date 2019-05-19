@@ -29,7 +29,7 @@ $(function() {
 
         if(currTime === undefined){
             var date = new Date();
-            currTime = date.now().getHours() + ":" + date.now().getMinutes();
+            currTime = date.getHours() + ":" + date.getMinutes();
         }
         var out = history + '\n' + currTime + " " + msg;
         var out2 = currTime + " " + msg;

@@ -98,13 +98,31 @@ app.post('/profile', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   var sql_creds = "SELECT * FROM user_creds WHERE user = '" + username + "' AND password='" + password + "'";
-
+  var chat=[],user=[];
   connection.query(sql_creds, function(err,result) {
 
     if(result && result.length){
-      connection.query("SELECT * FROM chat WHERE user1 = '" + username + "' OR user2 = '" + username + "' UNION SELECT * FROM USER_INFORMATION WHERE USER = '" + username + "'",function(err,rows){
-        res.status(200).json({"Data":rows});
+      connection.query("SELECT * FROM chat WHERE user1 = '" + username + "' OR user2 = '" + username + "'",function(err,rows){
+        console.log(rows);
+        if(err) {
+          throw err;
+        } else {
+          setValue(chat);
+        }
       });
+      connection.query(" SELECT * FROM user_information WHERE USER = '" + username + "'", function(err,row2){
+        console.log(row2);
+
+        if(err) {
+          throw err;
+        } else {
+          setValue(user);
+        }
+      });
+      
+      console.log(chat);
+      console.log(user);
+       res.status(200).json({"chat":chat,"user":user});
     }
     else{
       res.redirect("/#failed");
@@ -193,4 +211,8 @@ function calculation(userAnswer) {
 
   return personality;
 
+}
+function setValue(value) {
+  someVar = value;
+  console.log(someVar);
 }
