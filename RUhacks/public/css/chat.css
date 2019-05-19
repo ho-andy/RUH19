@@ -11,6 +11,7 @@ body{
 
 .text-area{
     display: inline-block;
+
 }
 
 .button-container{
@@ -27,6 +28,7 @@ body{
     height: 0;
     border: 0.5px solid black;
 }
+
 .send-button:hover{
     background-color: black;
     color: #95dfd0;
@@ -35,10 +37,17 @@ body{
 
 .message-input{
     float: left;
+    border-radius: 4px;
+}
+
+/* or its ::after */
+.message-input::after {
+    background-color: red;
 }
 
 .chat-history{
     width:100%;
+    border-radius: 10px;
 }
 
 .exit{
@@ -52,8 +61,4 @@ body{
 .exit:hover{
     color: #c5f9ef;
     cursor: pointer;
-}
-
-.text-area{
-    
 }
