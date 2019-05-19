@@ -40,11 +40,6 @@ body{
     border-radius: 4px;
 }
 
-/* or its ::after */
-.message-input::after {
-    background-color: red;
-}
-
 .chat-history{
     width:100%;
     border-radius: 10px;
