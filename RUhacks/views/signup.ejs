@@ -14,7 +14,7 @@
     <div class="container">
         <div class="content-pane">
             <h3>Please complete the following questionnaire in full to begin the matching process!</h3>
-            <form class="questionnaire" method="POST"action="/submit-form">
+            <form class="questionnaire" method="POST" action="/submit-form">
                 <div class="input-element">
                     <label for="username">Username:</label>
                     <input class="input" type="text" id="username" name="username" required />
@@ -473,10 +473,12 @@
                     <input type="radio" name="fifteen" value="Disagree">
                     <span class="checkmark"></span>
                 </label>
-                <input type="submit" class="submit-button" value="Submit"/>
+                <input type="submit" class="submit-button" value="Submit" />
             </form>
             <script>
-                document.getElementsByClassName("questionnaire").onsubmit = function() {submitAnswer()};
+                document.getElementsByClassName("questionnaire").onsubmit = function() {
+                    submitAnswer()
+                };
             </script>
         </div>
     </div>
