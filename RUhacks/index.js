@@ -87,7 +87,7 @@ app.post('/submit-form', (req, res) => {
         if (err) throw err;
         console.log("1 record inserted");
       });
-      res.redirect('/profile#' + username);
+      res.redirect('/');
     }
   res.end();
   });
