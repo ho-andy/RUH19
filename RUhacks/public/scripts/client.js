@@ -28,6 +28,7 @@ $(function() {
         var history = $('#chat-history').val();
 
         if(currTime === undefined){
+            var date = new Date();
             currTime = date.now().getHours() + ":" + date.now().getMinutes();
         }
         var out = history + '\n' + currTime + " " + msg;
