@@ -48,7 +48,7 @@ io.on('connection', function(socket){
 
 
 // Listen to the App Engine-specified port, or 8080 otherwise
-const PORT = process.env.PORT || 65080;
+const PORT = process.env.PORT || 8080;
 http.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
@@ -97,37 +97,26 @@ app.post('/submit-form', (req, res) => {
 app.post('/profile', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  var personality;
   var sql_creds = "SELECT * FROM user_creds WHERE user = '" + username + "' AND password='" + password + "'";
-  var chat=[],user=[];
-  connection.query(sql_creds, function(err,result) {
 
-    if(result && result.length){
-      connection.query("SELECT * FROM chat WHERE user1 = '" + username + "' OR user2 = '" + username + "'",function(err,rows){
-        console.log(rows);
-        if(err) {
-          throw err;
-        } else {
-          setValue(chat);
-        }
-      });
-      connection.query(" SELECT * FROM user_information WHERE USER = '" + username + "'", function(err,row2){
-        console.log(row2);
-
-        if(err) {
-          throw err;
-        } else {
-          setValue(user);
-        }
-      });
-      
-      console.log(chat);
-      console.log(user);
-       res.status(200).json({"chat":chat,"user":user});
-    }
+  connection.query("SELECT personality FROM user_information WHERE user='" + username + "'",function(err,row,fields){
+    if(err)throw err;
     else{
-      res.redirect("/#failed");
+      personality = row[0].personality;
+      connection.query(sql_creds, function(err,result) {
+
+        if(result && result.length){
+          res.redirect("/profile#" + username + "#" + personality);
+        }
+        else{
+          res.redirect("/#failed");
+        }
+      });
     }
   });
+
+
 
 });
 
@@ -213,6 +202,6 @@ function calculation(userAnswer) {
 
 }
 function setValue(value) {
-  someVar = value;
-  console.log(someVar);
+  var t = value;
+  return t;
 }
