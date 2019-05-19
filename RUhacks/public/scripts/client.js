@@ -26,6 +26,10 @@ $(function() {
     socket.on('user-message', function(msg){
         console.log("myown Message: " + msg);
         var history = $('#chat-history').val();
+
+        if(currTime === undefined){
+            currTime = date.now().getHours() + ":" + date.now().getMinutes();
+        }
         var out = history + '\n' + currTime + " " + msg;
         var out2 = currTime + " " + msg;
         console.log("currTime: " + currTime);
