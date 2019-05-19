@@ -11,7 +11,29 @@ $(function() {
                    ,"Neuroticism is also sometimes called Emotional Stability. This dimension relates to one’s emotional stability and degree of negative emotions. People that score high on neuroticism often experience emotional instability and negative emotions. Traits include being moody and tense.\nWould you agree that you are generally emotionally unstable?\nDo you stress over small things?\nOther people’s words may bug you for many days,weeks, or even years."
                   ];
 
+    var time 
+
     $("#personality").append(perName[index]);
     $("#body").html(perDesc[index]);
 
+    $("#chat").on("click",function(e){
+        let timerInterval
+        Swal.fire({
+          title: '<div class="loading">Now matching</div>',
+          html: 'Matching you with someone with your personality type!',
+          confirmButtonText: 'Cancel',
+          timer: getRandomIntInclusive(5000,8000),
+          onClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+            window.location.replace("/chat");
+        })
+    });
 });
+
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+  }
